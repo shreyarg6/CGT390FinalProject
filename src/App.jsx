@@ -1,8 +1,11 @@
+<Route path="/recipes/:id" element={<IndividualRecipe recipes={recipes} />} />
 import { useState } from 'react';
 import './App.css';
 import HomePage from "./pages/HomePage";
 import RecipesPage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import IndividualRecipe from "./pages/IndividualRecipe";
+
 
 function App() {
 
