@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Nova Script
+- Font Author: undefined
+- Font Source: https://fonts.gstatic.com/s/novascript/v26/7Au7p_IpkSWSTWaFWkumvmQNEl0O0kEx.ttf
+- Font License: undefined)
