@@ -11,6 +11,8 @@ function App() {
 
     <>
       <HomePage />
+      {/* <RecipesPage /> */}
+      {/* <FavoritesPage /> */}
     </>
 
     // <Routes>
