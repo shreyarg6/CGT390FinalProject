@@ -1,0 +1,29 @@
+.footer {
+    background-color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 30px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    border-top: 1px solid #ccc;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-copy {
+    color: black;
+  }
+  
