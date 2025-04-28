@@ -21,6 +21,8 @@
   .carousel-card h3, .carousel-card p {
     padding-top: 10px;
     margin-bottom: 0;
+    text-align: left;
+    color: black;
   }
 
   .carousel-cards {
@@ -30,20 +32,33 @@
   }
   
   .carousel-image {
-    max-width: 250px;
+    max-width: 200px;
     height: auto;
     border-radius: 2px;
   }
   
   .carousel-button {
-    background-color: #292828;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    text-align: center;
+    padding-top: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    background-color: white;
+    color: #292828;
+    border-radius: 50%;
+    border: 2px solid #292828;
     cursor: pointer;
   }
   
   .carousel-button:hover {
     background-color: #d9d9d9;
+    border: 2px solid #292828;
+  }
+
+  .carousel-button i {
+    font-size: 20px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }

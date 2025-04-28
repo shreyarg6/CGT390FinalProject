@@ -1,5 +1,6 @@
 import AddRecipeForm from "../components/AddRecipeForm";
-import RecipeGallery from "../components/RecipeGallery";
+import '../styles/AddRecipePage.css';
+import '../styles/AddRecipeForm.css';
 
 const AddRecipePage = () => {
   return (
@@ -8,7 +9,6 @@ const AddRecipePage = () => {
         <h1 style={{ textAlign: "center", marginBottom: "30px" }}>Add a Recipe</h1>
         <AddRecipeForm />
       </div>
-      <RecipeGallery />
     </div>
   );
 };

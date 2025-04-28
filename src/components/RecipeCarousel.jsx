@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/RecipeCarousel.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const RecipeCarousel = () => {
     const [recipes, setRecipes] = useState([]);
@@ -39,7 +42,7 @@ const RecipeCarousel = () => {
             <h2>Popular Recipes</h2>
         <div className="carousel">
             <button className="carousel-button" onClick={prevSlide}>
-                &#8592;
+            <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <div className="carousel-cards">
                 {visibleRecipes.map((recipe, index) => (
@@ -59,7 +62,7 @@ const RecipeCarousel = () => {
                 ))}
             </div>
             <button className="carousel-button" onClick={nextSlide}>
-                &#8594;
+            <FontAwesomeIcon icon={faArrowRight} />
             </button>
         </div>
         </div>

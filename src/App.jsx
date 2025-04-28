@@ -1,6 +1,7 @@
 import './App.css';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar"; // if you have a navbar
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import RecipePage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/add-recipe" element={<AddRecipePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </HashRouter>
   );
 };

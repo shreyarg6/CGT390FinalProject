@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const RecipeGallery = () => {
+const AddRecipeForm  = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ const RecipeGallery = () => {
   );
 };
 
-export default RecipeGallery;
+export default AddRecipeForm ;
