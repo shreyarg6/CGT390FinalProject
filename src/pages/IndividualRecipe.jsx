@@ -29,6 +29,7 @@ const IndividualRecipe = () => {
       <Link to="/recipes" className="back-button">Back to Recipes</Link>
       <h1 className="recipe-title">{recipe.name}</h1>
       <div className="recipe-content">
+        
         <img src={recipe.image_url} alt={recipe.title} className="recipe-image" />
         <div className="recipe-details">
           <h2>Introduction</h2>
