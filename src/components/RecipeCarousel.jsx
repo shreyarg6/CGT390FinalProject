@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // <-- Import useNavigate
 import "../styles/RecipeCarousel.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const RecipeCarousel = () => {
     const [recipes, setRecipes] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate(); // <-- Create navigate function
     const cardsToShow = 3; // Number of cards to display at once
 
     useEffect(() => {
@@ -26,6 +25,10 @@ const RecipeCarousel = () => {
         );
     };
 
+    const handleCardClick = (id) => {
+        navigate(`/recipe/${id}`); // <-- Navigate to the specific recipe page
+    };
+
     if (recipes.length === 0) {
         return <div>Loading...</div>;
     }
@@ -39,31 +42,36 @@ const RecipeCarousel = () => {
 
     return (
         <div className="carousel-container">
-        <div className="carousel">
-            <button className="carousel-button" onClick={prevSlide}>
-            <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-            <div className="carousel-cards">
-                {visibleRecipes.map((recipe, index) => (
-                    <div key={index} className="carousel-card">
-                        <img
-                            src={
-                                recipe.image_url && recipe.image_url.startsWith("http")
-                                    ? recipe.image_url
-                                    : "placeholder.jpg"
-                            }
-                            alt={recipe.title}
-                            className="carousel-image"
-                        />
-                        <h3>{recipe.title}</h3>
-                        <p>Time: {recipe.cook_time}</p>
-                    </div>
-                ))}
+            <div className="carousel">
+                <button className="carousel-button" onClick={prevSlide}>
+                    &#8592;
+                </button>
+                <div className="carousel-cards">
+                    {visibleRecipes.map((recipe, index) => (
+                        <div 
+                            key={index} 
+                            className="carousel-card"
+                            onClick={() => handleCardClick(recipe.id)} // <-- make the card clickable
+                            style={{ cursor: "pointer" }}
+                        >
+                            <img
+                                src={
+                                    recipe.image_url && recipe.image_url.startsWith("http")
+                                        ? recipe.image_url
+                                        : "placeholder.jpg"
+                                }
+                                alt={recipe.title}
+                                className="carousel-image"
+                            />
+                            <h3>{recipe.title}</h3>
+                            <p>Time: {recipe.cook_time}</p>
+                        </div>
+                    ))}
+                </div>
+                <button className="carousel-button" onClick={nextSlide}>
+                    &#8594;
+                </button>
             </div>
-            <button className="carousel-button" onClick={nextSlide}>
-            <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-        </div>
         </div>
     );
 };
