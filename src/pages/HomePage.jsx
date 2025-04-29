@@ -1,13 +1,13 @@
-import Wrapper from "../components/Wrapper";
 import RecipeCarousel from "../components/RecipeCarousel";
-import '../styles/RecipeCarousel.css';
+import '../styles/home.css';
 
 const HomePage = () => {
     return (
-        <Wrapper>
-            <h1>Welcome to Whisk It Up!</h1>
+        <div className="home-page">
+            <h1 className="home-h1">Welcome to Whisk It Up!</h1>
+            <h2 className="home-h2">Popular Recipes</h2>
             <RecipeCarousel />
-        </Wrapper>
+        </div>
     );
 };
 

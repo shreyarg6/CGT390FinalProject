@@ -1,37 +1,30 @@
-{/* <Route path="/recipes/:id" element={<IndividualRecipe recipes={recipes} />} /> */}
-import { useState } from 'react';
 import './App.css';
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar"; // if you have a navbar
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import RecipesPage from "./pages/RecipesPage";
+import RecipePage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import IndividualRecipe from "./pages/IndividualRecipe";
-import { HashRouter, Routes, Route  } from "react-router-dom";
-import AddRecipePage from "./pages/AddRecipePage";
 import NotFound from "./pages/NotFound";
+import AddRecipePage from "./pages/AddRecipePage"; // if you still have this
 
-
-function App() {
-
-
+const App = () => {
   return (
-
-    <>
-      <HomePage />
-      {/* <RecipesPage /> */}
-      {/* <FavoritesPage /> */}
-      {/* <IndividualRecipe /> */}
-    </>
-  //   <HashRouter>
-  //     <Routes>
-  //       <Route path="/" element={<HomePage />} />
-  //       <Route path="/recipes" element={<RecipesPage />} />
-  //       <Route path="/favorites" element={<FavoritesPage />} />
-  //       {/* <Route path="/recipes/:id" element={<IndividualRecipe recipes={recipes} />} /> */}
-  //       <Route path="/add" element={<AddRecipePage />} />
-  //       <Route path="*" element={<NotFound />} />
-  //     </Routes>
-  //   </HashRouter>
-  )
-}
+    <HashRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/recipes" element={<RecipePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/recipe/:id" element={<IndividualRecipe />} />
+        <Route path="/add-recipe" element={<AddRecipePage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </HashRouter>
+  );
+};
 
 export default App;
+

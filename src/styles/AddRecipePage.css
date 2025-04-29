@@ -1,16 +1,13 @@
-.home-page {
+.add-recipe-page {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     width: 100vw;
     min-height: 100vh;
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
-.home-h1, .home-h2 {
-    text-align: center;
-}
-
-.home-h1 {
+.add-recipe-h1 {
     margin-bottom: 100px;
+    text-align: center;
 }

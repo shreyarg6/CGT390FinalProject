@@ -29,7 +29,7 @@ const RecipeGallery = () => {
                 <div key={recipe.id} className="card">
                     <img src={recipe.image_url} alt={recipe.title} className="image" />
                     <h3>{recipe.title}</h3>
-                    <p>{recipe.cook_time}</p>
+                    <p>Time: {recipe.cook_time}</p>
                 </div>
             ))}
         </div>
