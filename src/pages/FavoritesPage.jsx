@@ -1,12 +1,12 @@
-import Wrapper from "../components/Wrapper";
 import RecipeGallery from "../components/RecipeGallery";
+import '../styles/favorites.css';
 
 const FavoritesPage = () => {
     return (
-        <Wrapper>
-            <h1>Favorites</h1>
+        <div className="favorites-page">
+            <h1 className="favorites-h1">Favorites</h1>
             <RecipeGallery />
-        </Wrapper>
+        </div>
     );
 };
 

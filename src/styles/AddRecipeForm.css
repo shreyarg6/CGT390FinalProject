@@ -1,14 +1,16 @@
 .recipe-form {
-    max-width: 700px;
+    width: 600px;
     margin: 30px auto;
     padding: 30px;
-    background-color: #1f1f1f;
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    border: 1px solid #292828;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 15px;
-    color: white;
+    color: black;
+    margin-top: 50px;
   }
   
   .recipe-form h2 {
@@ -21,12 +23,17 @@
   .recipe-form input[type="file"] {
     width: 100%;
     padding: 12px;
+    padding-left: 25px;
     font-size: 1rem;
-    background: #2a2a2a;
-    color: white;
+    background: #ece6f0;
+    color: black;
     border: 1px solid #444;
-    border-radius: 6px;
+    border-radius: 40px;
     box-sizing: border-box;
+  }
+
+  .recipe-form textarea {
+    border-radius: 50px;
   }
   
   .recipe-form textarea {
@@ -37,26 +44,31 @@
   .recipe-form label {
     font-weight: bold;
     margin-top: 10px;
+    padding-left: 20px;
   }
   
   .recipe-form button {
     align-self: flex-start;
-    background-color: #e74c3c;
-    color: white;
+    background-color: #ece6f0;
+    color: black;
     padding: 10px 20px;
     border: none;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    border-radius: 40px;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid black;
   }
   
   .recipe-form button:hover {
-    background-color: #c0392b;
+    background-color: #adacad;
   }
   
   .recipe-form button:disabled {
-    background-color: #555;
+    background-color: #d9d9d9;
     cursor: not-allowed;
   }
   

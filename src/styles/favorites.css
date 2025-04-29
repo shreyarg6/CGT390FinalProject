@@ -1,4 +1,4 @@
-.recipes-page {
+.favorites-page {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
@@ -7,7 +7,7 @@
     padding-top: 120px;
 }
 
-.recipes-h1 {
+.favorites-h1 {
     margin-bottom: 70px;
     text-align: center;
 }

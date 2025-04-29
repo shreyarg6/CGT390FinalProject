@@ -39,7 +39,6 @@ const RecipeCarousel = () => {
 
     return (
         <div className="carousel-container">
-            <h2>Popular Recipes</h2>
         <div className="carousel">
             <button className="carousel-button" onClick={prevSlide}>
             <FontAwesomeIcon icon={faArrowLeft} />
