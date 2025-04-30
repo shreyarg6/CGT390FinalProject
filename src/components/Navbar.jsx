@@ -72,7 +72,7 @@ function Navbar() {
       <div className="navbar-links">
         <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>Home</Link>
         <Link to="/recipes" className={location.pathname === "/recipes" ? "active-link" : ""}>Recipes</Link>
-        <Link to="/add-recipe" className={location.pathname === "/add-recipe" ? "active-link" : ""}>Add a Recipe</Link>
+        <Link to="/add-recipe" className={location.pathname === "/add-recipe" ? "active-link" : ""}>Add Recipe</Link>
         <Link to="/favorites" className={location.pathname === "/favorites" ? "active-link" : ""}>Favorites</Link>
         {/* <Link to="/login">Log Out</Link> */}
       </div>
