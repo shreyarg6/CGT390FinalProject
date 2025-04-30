@@ -41,6 +41,9 @@ const IndividualRecipe = () => {
                         {/* <h2>Introduction</h2> */}
                         {/* <p>{recipe.description}</p> */}
 
+                        <h2 style={{ paddingBottom: "10px" }}>Cook Time</h2>
+                        <p style={{ paddingBottom: "55px", paddingRight: "20px" }}>{recipe.cook_time_minutes} Minutes</p>
+
                         <h2 style={{ paddingBottom: "10px" }}>Ingredients</h2>
                         <ul style={{ paddingBottom: "55px" }}>
                             {recipe.ingredients.split("\n").map((ingredient, index) => (
@@ -51,7 +54,7 @@ const IndividualRecipe = () => {
                         <h2 style={{ paddingBottom: "10px" }}>Instructions</h2>
                         <p style={{ paddingBottom: "55px", paddingRight: "20px" }}>{recipe.instructions}</p>
 
-                        <p style={{ paddingBottom: "10px" }}><span className="allergy-warning">Allergy Warnings: </span>{recipe.allergy || "None"}</p>
+                        <p style={{ paddingBottom: "10px" }}><span className="allergy-warning">Allergy Warnings: </span>{recipe.allergies}</p>
                     </div>
                 </div>
             </div>

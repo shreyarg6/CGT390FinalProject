@@ -64,7 +64,7 @@ const RecipeCarousel = () => {
                                 className="carousel-image"
                             />
                             <h3>{recipe.title}</h3>
-                            <p>Time: {recipe.cook_time}</p>
+                            <p>Time: {recipe.cook_time_minutes} Minutes</p>
                         </div>
                     ))}
                 </div>

@@ -2,15 +2,24 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/AddRecipeForm.css";
 
+const categoryOptions = [
+  "Breakfast", "Lunch", "Dinner", "Dessert", "Pastry", "Snack"
+];
+
+const allergyOptions = [
+  "Shellfish", "Gluten", "Peanuts", "Dairy", "Soy", "Eggs"
+];
+
 const AddRecipeForm = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState({
     title: "",
     category: "",
-    cook_time: "",
+    cook_time_minutes: "",
     ingredients: "",
     instructions: "",
+    allergies: [],
     image: null,
   });
 
@@ -19,7 +28,9 @@ const AddRecipeForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
-    if (e.target.name === "image") {
+    const { name, value, type, checked } = e.target;
+
+    if (name === "image") {
       const file = e.target.files[0];
       if (file && file.size > 2000000) {
         setErrors({ ...errors, image: "Image must be less than 2MB." });
@@ -27,8 +38,13 @@ const AddRecipeForm = () => {
         setData({ ...data, image: file });
         setErrors({ ...errors, image: "" });
       }
+    } else if (name === "allergies") {
+      const newAllergies = checked
+        ? [...data.allergies, value]
+        : data.allergies.filter((a) => a !== value);
+      setData({ ...data, allergies: newAllergies });
     } else {
-      setData({ ...data, [e.target.name]: e.target.value });
+      setData({ ...data, [name]: value });
     }
   };
 
@@ -38,10 +54,11 @@ const AddRecipeForm = () => {
 
     const formData = new FormData();
     formData.append("title", data.title.trim());
-    formData.append("category", data.category.trim());
-    formData.append("cook_time", data.cook_time.trim());
+    formData.append("category", data.category);
+    formData.append("cook_time_minutes", data.cook_time_minutes);
     formData.append("ingredients", data.ingredients.trim());
     formData.append("instructions", data.instructions.trim());
+    data.allergies.forEach((a) => formData.append("allergies[]", a));
     if (data.image) formData.append("image", data.image);
 
     try {
@@ -58,14 +75,15 @@ const AddRecipeForm = () => {
         setData({
           title: "",
           category: "",
-          cook_time: "",
+          cook_time_minutes: "",
           ingredients: "",
           instructions: "",
+          allergies: [],
           image: null,
         });
         setTimeout(() => {
           setSuccessMessage("");
-          navigate("/"); // or "/recipes" depending on where you want to redirect
+          navigate("/"); // Redirect after success
         }, 1000);
       } else {
         setErrors({ ...errors, general: result.message || "Error submitting recipe." });
@@ -79,7 +97,7 @@ const AddRecipeForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="recipe-form">
-      {/* <h2>Add a New Recipe</h2> */}
+      <h2>Add a New Recipe</h2>
 
       <input
         type="text"
@@ -90,26 +108,26 @@ const AddRecipeForm = () => {
         onChange={handleChange}
       />
 
-      <input
-        type="text"
-        name="category"
-        placeholder="Category (e.g., Breakfast, Vegan)"
-        required
-        value={data.category}
-        onChange={handleChange}
-      />
+      <select name="category" required value={data.category} onChange={handleChange}>
+        <option value="">Select Category</option>
+        {categoryOptions.map((cat) => (
+          <option key={cat} value={cat}>{cat}</option>
+        ))}
+      </select>
 
       <input
-        type="text"
-        name="cook_time"
-        placeholder="Cook Time (e.g., 30 mins)"
-        value={data.cook_time}
+        type="number"
+        name="cook_time_minutes"
+        placeholder="Cook Time (in minutes)"
+        value={data.cook_time_minutes}
         onChange={handleChange}
+        required
+        min="1"
       />
 
       <textarea
         name="ingredients"
-        placeholder="Ingredients (comma separated or listed)"
+        placeholder="Ingredients (one per line)"
         required
         value={data.ingredients}
         onChange={handleChange}
@@ -122,6 +140,22 @@ const AddRecipeForm = () => {
         value={data.instructions}
         onChange={handleChange}
       />
+
+      <fieldset>
+        <legend>Allergies (select all that apply):</legend>
+        {allergyOptions.map((allergy) => (
+          <label key={allergy}>
+            <input
+              type="checkbox"
+              name="allergies"
+              value={allergy}
+              checked={data.allergies.includes(allergy)}
+              onChange={handleChange}
+            />
+            {allergy}
+          </label>
+        ))}
+      </fieldset>
 
       <label htmlFor="image">Upload a photo:</label>
       <input
@@ -139,9 +173,10 @@ const AddRecipeForm = () => {
           submitting ||
           errors.image !== "" ||
           data.title.trim() === "" ||
-          data.category.trim() === "" ||
+          data.category === "" ||
           data.ingredients.trim() === "" ||
-          data.instructions.trim() === ""
+          data.instructions.trim() === "" ||
+          !data.cook_time_minutes
         }
       >
         Submit Recipe
