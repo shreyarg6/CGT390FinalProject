@@ -5,7 +5,7 @@ import "../styles/RecipeGallery.css";
 const RecipeGallery = () => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [searchTerm, setSearchTerm] = useState(""); // 🔍 state for search
+    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedCookTime, setSelectedCookTime] = useState("");
