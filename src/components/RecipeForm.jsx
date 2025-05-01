@@ -60,7 +60,6 @@ const RecipeForm = ({ isEdit = false, currentRecipe = {} }) => {
         setErrors({ ...errors, image: "" });
       }
     } else if (name === "allergies") {
-      // Add or remove allergy without duplicates
       const updatedAllergies = checked
         ? data.allergies.includes(value)
           ? data.allergies
