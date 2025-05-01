@@ -83,7 +83,7 @@ const AddRecipeForm = () => {
         });
         setTimeout(() => {
           setSuccessMessage("");
-          navigate("/"); // Redirect after success
+          navigate("/");
         }, 1000);
       } else {
         setErrors({ ...errors, general: result.message || "Error submitting recipe." });
