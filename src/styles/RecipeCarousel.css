@@ -32,8 +32,14 @@
     height: 300px;
     width: 300px;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: 5px;
+    transform: scale(calc(1 + (var(--hover, 0) * 0.05)));
+    transition: transform 0.2s;
   }
+
+  .carousel-image:is(:hover) {
+    --hover: 1;
+}
   
   .carousel-button {
     text-align: center;
@@ -54,4 +60,74 @@
   .carousel-button:hover {
     background-color: #d9d9d9;
     border: 2px solid #292828;
+  }
+
+  /*mobile styles*/
+@media screen and (max-width: 1150px) {
+  .carousel-image {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+  /*mobile styles*/
+  @media screen and (max-width: 840px) {
+    .carousel-image {
+      height: 150px;
+      width: 150px;
+    }
+
+    .carousel-card h3, .carousel-card p {
+      font-size: 16px;
+    }
+  }
+
+  /*mobile styles*/
+  @media screen and (max-width: 680px) {
+    .carousel-image {
+      height: 100px;
+      width: 100px;
+    }
+
+    .carousel-card h3, .carousel-card p {
+      font-size: 12px;
+    }
+
+    .carousel {
+      gap: 2px;
+    }
+
+    .carousel-cards {
+      gap: 5px;
+    }
+
+    .carousel-button {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+   /*mobile styles*/
+   @media screen and (max-width: 480px) {
+    .carousel-image {
+      height: 90px;
+      width: 90px;
+    }
+
+    .carousel-card h3, .carousel-card p {
+      font-size: 10px;
+    }
+
+    .carousel {
+      gap: 2px;
+    }
+
+    .carousel-cards {
+      gap: 5px;
+    }
+
+    .carousel-button {
+      width: 40px;
+      height: 40px;
+    }
   }

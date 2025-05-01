@@ -1,0 +1,14 @@
+.recipe-edit-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 70px;
+}
+
+.recipe-edit-h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}

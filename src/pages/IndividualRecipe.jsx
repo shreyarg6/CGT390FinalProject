@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import AuthContext from "../contexts/AuthContext";
+import { useContext } from "react";
 import "../styles/IndividualRecipe.css";
 
 const IndividualRecipe = () => {
     const { id } = useParams();
     const [recipe, setRecipe] = useState(null);
+    const { isLogin } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchRecipe = async () => {
@@ -26,10 +29,13 @@ const IndividualRecipe = () => {
 
     return (
         <div className="individual-recipe-container">
-            <div className="recipe-back-button">
-                <Link to="/recipes" className="back-button">Back to Recipes</Link>
-            </div>
+            
             <h1 className="recipe-title">{recipe.title}</h1>
+            <div className="recipe-buttons">
+                <Link to="/recipes" className="back-button">Back to Recipes</Link>
+                {isLogin && <Link to="/edit" className="edit-button">Edit</Link>}
+                    {isLogin && <Link to="/" className="delete-button">Delete</Link>}
+            </div>
             <div className="recipe-content">
                 <div className="individual-recipe-left">
                     <img src={recipe.image_url} alt={recipe.title} className="recipe-image" />

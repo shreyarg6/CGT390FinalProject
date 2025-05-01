@@ -49,6 +49,13 @@
     background-color: #adacad;
   }
 
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+  }
+
   .recipe-form textarea {
     border-radius: 50px;
   }

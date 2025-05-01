@@ -4,6 +4,10 @@ import { Link, useLocation } from 'react-router-dom';
 import Logo from "../assets/logo.png";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../contexts/AuthContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const location = useLocation();
@@ -34,6 +38,16 @@ function Navbar() {
     setSearchResults([]);
     navigate(`/recipe/${id}`);
   };
+
+
+
+  const { isLogin, logout } = useContext(AuthContext);
+  const handleClick = () => {
+      logout();
+      navigate("/login");
+  }
+
+
 
   return (
     <nav className="navbar">
@@ -69,12 +83,29 @@ function Navbar() {
           </div>
         )}
       </div>
+
+      <div className="navbar-auth">
+      {isLogin ?
+        // <Link to="/login">Log Out</Link>
+        <Link onClick={handleClick}><FontAwesomeIcon icon={faSignOut}/></Link>
+        :
+        <div>
+        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
+        </div>
+}
+      </div>
+
       <div className="navbar-links">
         <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>Home</Link>
         <Link to="/recipes" className={location.pathname === "/recipes" ? "active-link" : ""}>Recipes</Link>
-        <Link to="/add-recipe" className={location.pathname === "/add-recipe" ? "active-link" : ""}>Add Recipe</Link>
-        <Link to="/favorites" className={location.pathname === "/favorites" ? "active-link" : ""}>Favorites</Link>
-        {/* <Link to="/login">Log Out</Link> */}
+        {
+        isLogin &&
+          <Link to="/add-recipe" className={location.pathname === "/add-recipe" ? "active-link" : ""}>Add Recipe</Link>
+        }
+        {/* <Link to="/favorites" className={location.pathname === "/favorites" ? "active-link" : ""}>Favorites</Link> */}
+
+        
       </div>
 
       

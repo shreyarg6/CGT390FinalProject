@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+    width: 1200px;
 }
 
 .gallery {
@@ -37,6 +38,12 @@
     width: 300px;
     object-fit: cover;
     border-radius: 2px;
+    transform: scale(calc(1 + (var(--hover, 0) * 0.05)));
+    transition: transform 0.2s;
+}
+
+.image:is(:hover) {
+  --hover: 1;
 }
 
 .search-bar {
@@ -71,6 +78,17 @@
     color: black;
     min-width: 160px;
   }
-  
 
+/*tablet styles*/
+@media screen and (max-width: 1030px) {
+  .gallery {
+    width: 800px;
+  }
+}
 
+/*mobile styles*/
+@media screen and (max-width: 730px) {
+  .gallery {
+    width: 500px;
+  }
+}

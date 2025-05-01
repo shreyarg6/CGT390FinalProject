@@ -97,7 +97,7 @@ const AddRecipeForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="recipe-form">
-      <h2>Add a New Recipe</h2>
+      {/* <h2>Add a New Recipe</h2> */}
 
       <input
         type="text"

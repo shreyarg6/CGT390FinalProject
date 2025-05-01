@@ -9,6 +9,26 @@
   font-family: 'Arial', sans-serif;
   font-size: 16px;
 }
+
+.navbar-auth {
+  display: flex;
+  align-items: center;
+  justify-content: flex-between;
+}
+
+.navbar-auth a {
+  background-color: #ece6f0;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.navbar-auth a {
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+  font-size: 16px;
+} 
   
 .navbar-logo {
   font-family: 'Indie Flower', cursive;
@@ -112,6 +132,10 @@
   .navbar-search input {
     width: 200px;
   }
+
+  .navbar-auth a {
+    font-size: 14px;
+  }
 }
 
 /*mobile styles*/
@@ -134,6 +158,10 @@
     width: 30px;
     height: 30px;
   }
+
+  .navbar-auth a {
+    font-size: 12px;
+  }
 }
 
 /*mobile styles*/
@@ -145,6 +173,10 @@
   
   .navbar-links a {
     margin-left: 5px;
+  }
+
+  .navbar-auth a {
+    margin-left: 10px;
   }
 
   .navbar {
