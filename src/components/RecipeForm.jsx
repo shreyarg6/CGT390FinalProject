@@ -25,7 +25,6 @@ const RecipeForm = ({ isEdit = false, currentRecipe = {} }) => {
 
   useEffect(() => {
     if (isEdit && currentRecipe) {
-      // Initialize allergies array from comma-separated string, trim spaces, remove empty & duplicates
       const rawAllergies = currentRecipe.allergies
         ? currentRecipe.allergies
             .split(',')
