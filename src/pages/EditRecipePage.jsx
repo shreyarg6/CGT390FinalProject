@@ -51,18 +51,8 @@ const EditRecipePage = () => {
       ) : recipe ? (
         <>
           <RecipeForm isEdit={true} currentRecipe={recipe} />
-          <button
+          <button className="delete-recipe-button"
             onClick={handleDelete}
-            style={{
-              marginTop: "30px",
-              display: "block",
-              backgroundColor: "#f44336",
-              color: "white",
-              padding: "10px 20px",
-              border: "none",
-              borderRadius: "30px",
-              cursor: "pointer",
-            }}
           >
             Delete Recipe
           </button>
