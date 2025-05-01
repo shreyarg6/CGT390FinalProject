@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import AddRecipePage from "./pages/AddRecipePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import RecipeEditPage from "./pages/RecipeEditPage";
+import EditRecipePage from "./pages/EditRecipePage";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -33,7 +33,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
 
-            <Route path="/edit" element={<RecipeEditPage />} />
+            <Route path="/edit/:id" element={<EditRecipePage />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

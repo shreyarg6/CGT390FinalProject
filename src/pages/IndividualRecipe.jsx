@@ -33,8 +33,7 @@ const IndividualRecipe = () => {
             <h1 className="recipe-title">{recipe.title}</h1>
             <div className="recipe-buttons">
                 <Link to="/recipes" className="back-button">Back to Recipes</Link>
-                {isLogin && <Link to="/edit" className="edit-button">Edit</Link>}
-                    {isLogin && <Link to="/" className="delete-button">Delete</Link>}
+                {isLogin && <Link to={`/edit/${id}`} className="edit-button">Edit</Link>}
             </div>
             <div className="recipe-content">
                 <div className="individual-recipe-left">
